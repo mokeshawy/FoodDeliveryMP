@@ -31,6 +31,8 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation("androidx.activity:activity-compose:1.11.0")
+
+            implementation("io.ktor:ktor-client-android:3.2.3")
         }
         commonMain.dependencies {
 
@@ -51,6 +53,18 @@ kotlin {
             implementation("io.insert-koin:koin-compose-viewmodel:$koinVersion")
             implementation("io.insert-koin:koin-compose-viewmodel-navigation:$koinVersion")
 
+            //Kotor
+            val ktorVersion = "3.2.3"
+            implementation("io.ktor:ktor-client-core:$ktorVersion")
+            implementation("io.ktor:ktor-client-logging:$ktorVersion")
+            implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+
+
+            //Coroutines
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7")
+
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -58,6 +72,10 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+        }
+
+        iosMain.dependencies {
+            implementation("io.ktor:ktor-client-darwin:3.2.3")
         }
         commonTest.dependencies {
             implementation("org.jetbrains.kotlin:kotlin-test:2.2.10")
