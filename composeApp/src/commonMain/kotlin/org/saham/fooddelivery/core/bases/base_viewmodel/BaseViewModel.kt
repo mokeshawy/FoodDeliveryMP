@@ -1,4 +1,4 @@
-package org.saham.fooddelivery.core.base_viewmodel
+package org.saham.fooddelivery.core.bases.base_viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

@@ -25,3 +25,11 @@ class BadRequestException(message: String? = null, cause: Throwable? = null) :
     AppErrorException(message, cause)
 
 
+class ResponseError(message: String? = null, cause: Throwable? = null) :
+    AppErrorException(message, cause)
+
+
+class ResponseUnAuthorizedError(message: String? = null, cause: Throwable? = null) :
+    AppErrorException(message, cause)
+
+
