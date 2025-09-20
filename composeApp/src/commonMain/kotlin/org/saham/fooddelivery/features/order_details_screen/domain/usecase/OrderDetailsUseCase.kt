@@ -1,11 +1,11 @@
-package org.saham.fooddelivery.features.order_details.domain.usecase
+package org.saham.fooddelivery.features.order_details_screen.domain.usecase
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.channelFlow
 import org.saham.fooddelivery.core.state.State
 import org.saham.fooddelivery.features.common.data.response.OrderResponseDto
 import org.saham.fooddelivery.features.common.domain.mapper.toOrderUiModel
-import org.saham.fooddelivery.features.order_details.domain.repository.OrderDetailsRepository
+import org.saham.fooddelivery.features.order_details_screen.domain.repository.OrderDetailsRepository
 
 class OrderDetailsUseCase(private val orderDetailsRepository: OrderDetailsRepository) {
 

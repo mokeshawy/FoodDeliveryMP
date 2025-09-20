@@ -1,4 +1,4 @@
-package org.saham.fooddelivery.features.order_details.data.repository
+package org.saham.fooddelivery.features.order_details_screen.data.repository
 
 import io.ktor.client.call.body
 import io.ktor.client.statement.HttpResponse
@@ -8,7 +8,7 @@ import org.saham.fooddelivery.core.bases.base_repository.BaseRepository
 import org.saham.fooddelivery.core.state.State
 import org.saham.fooddelivery.features.common.data.response.OrderResponseDto
 import org.saham.fooddelivery.features.food_delivery_services.FoodDeliveryServices
-import org.saham.fooddelivery.features.order_details.domain.repository.OrderDetailsRepository
+import org.saham.fooddelivery.features.order_details_screen.domain.repository.OrderDetailsRepository
 
 
 class OrderDetailsRepositoryImpl(

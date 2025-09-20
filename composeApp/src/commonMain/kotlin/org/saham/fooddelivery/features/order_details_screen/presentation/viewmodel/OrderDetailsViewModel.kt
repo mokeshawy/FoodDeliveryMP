@@ -1,4 +1,4 @@
-package org.saham.fooddelivery.features.order_details.presentation.viewmodel
+package org.saham.fooddelivery.features.order_details_screen.presentation.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.toRoute
@@ -8,10 +8,10 @@ import org.saham.fooddelivery.core.error.ErrorLogPriority
 import org.saham.fooddelivery.core.extensions.collectOnFlowState
 import org.saham.fooddelivery.core.extensions.viewModelScope
 import org.saham.fooddelivery.core.websocket.WebSocketHelper
-import org.saham.fooddelivery.features.order_details.domain.event.OrderDetailsIntent
-import org.saham.fooddelivery.features.order_details.domain.model.state.OrdersDetailsUiState
-import org.saham.fooddelivery.features.order_details.domain.usecase.OrderDetailsUseCase
-import org.saham.fooddelivery.features.order_details.graph.OrderDetailsScreen
+import org.saham.fooddelivery.features.order_details_screen.domain.event.OrderDetailsIntent
+import org.saham.fooddelivery.features.order_details_screen.domain.model.state.OrdersDetailsUiState
+import org.saham.fooddelivery.features.order_details_screen.domain.usecase.OrderDetailsUseCase
+import org.saham.fooddelivery.features.order_details_screen.graph.OrderDetailsScreen
 
 
 class OrderDetailsViewModel(

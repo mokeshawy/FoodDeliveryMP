@@ -1,9 +1,9 @@
-package org.saham.fooddelivery.features.order_details.graph
+package org.saham.fooddelivery.features.order_details_screen.graph
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import org.saham.fooddelivery.features.order_details.presentation.OrderDetailsScreen
+import org.saham.fooddelivery.features.order_details_screen.presentation.OrderDetailsScreen
 import kotlinx.serialization.Serializable
 
 

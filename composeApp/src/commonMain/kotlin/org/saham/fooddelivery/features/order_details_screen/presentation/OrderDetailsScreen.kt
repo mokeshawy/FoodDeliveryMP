@@ -1,4 +1,4 @@
-package org.saham.fooddelivery.features.order_details.presentation
+package org.saham.fooddelivery.features.order_details_screen.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,12 +8,12 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.saham.fooddelivery.features.common_composaple.OrderItem
+import org.saham.fooddelivery.features.common_composaple.OrderItem
 import fooddeliverymp.composeapp.generated.resources.Res
 import fooddeliverymp.composeapp.generated.resources.ic_vector_arrow_back
 import fooddeliverymp.composeapp.generated.resources.orderDetails
 import org.koin.compose.viewmodel.koinViewModel
-import org.saham.fooddelivery.features.order_details.presentation.viewmodel.OrderDetailsViewModel
+import org.saham.fooddelivery.features.order_details_screen.presentation.viewmodel.OrderDetailsViewModel
 import org.saham.fooddelivery.ui_component.failure_view.FailureView
 import org.saham.fooddelivery.ui_component.main_top_bar.MainTopBar
 

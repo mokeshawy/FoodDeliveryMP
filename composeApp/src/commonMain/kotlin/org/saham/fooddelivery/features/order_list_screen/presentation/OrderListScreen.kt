@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.saham.fooddelivery.features.common_composaple.OrderItem
+import org.saham.fooddelivery.features.common_composaple.OrderItem
 import fooddeliverymp.composeapp.generated.resources.Res
 import fooddeliverymp.composeapp.generated.resources.app_name
 import org.koin.compose.viewmodel.koinViewModel

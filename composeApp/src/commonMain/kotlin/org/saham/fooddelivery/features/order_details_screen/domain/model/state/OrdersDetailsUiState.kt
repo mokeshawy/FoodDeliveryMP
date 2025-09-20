@@ -1,4 +1,4 @@
-package org.saham.fooddelivery.features.order_details.domain.model.state
+package org.saham.fooddelivery.features.order_details_screen.domain.model.state
 
 import org.saham.fooddelivery.core.bases.base_viewmodel.ViewState
 import org.saham.fooddelivery.core.error.AppError

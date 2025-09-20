@@ -5,8 +5,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import kotlinx.serialization.Serializable
-import org.saham.fooddelivery.features.order_details.graph.navigateToOrderDetailsGraph
-import org.saham.fooddelivery.features.order_details.graph.orderDetailsGraph
+import org.saham.fooddelivery.features.order_details_screen.graph.navigateToOrderDetailsGraph
+import org.saham.fooddelivery.features.order_details_screen.graph.orderDetailsGraph
 import org.saham.fooddelivery.features.order_list_screen.presentation.OrdersListScreen
 import org.saham.fooddelivery.nav_host.RootGraph
 

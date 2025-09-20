@@ -1,4 +1,4 @@
-package com.saham.fooddelivery.features.common_composaple
+package org.saham.fooddelivery.features.common_composaple
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
