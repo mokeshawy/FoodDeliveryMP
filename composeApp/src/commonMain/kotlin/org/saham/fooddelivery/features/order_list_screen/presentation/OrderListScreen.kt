@@ -11,9 +11,11 @@ import fooddeliverymp.composeapp.generated.resources.app_name
 import org.koin.compose.viewmodel.koinViewModel
 import org.saham.fooddelivery.features.common.domain.model.ui.OrderUiModel
 import org.saham.fooddelivery.features.order_list_screen.presentation.viewmodel.OrderListViewModel
-import org.saham.fooddelivery.ui_component.failure_view.FailureView
-import org.saham.fooddelivery.ui_component.main_top_bar.MainTopBar
-import org.saham.fooddelivery.ui_component.ui_generic.GeneralLazyColumn
+import com.shared.core.ui.failure_view.FailureView
+import com.shared.core.ui.main_top_bar.MainTopBar
+import com.shared.core.ui.ui_generic.GeneralLazyColumn
+import fooddeliverymp.composeapp.generated.resources.ic_vector_error
+import fooddeliverymp.composeapp.generated.resources.tapToLoadContent
 
 
 @Composable
@@ -26,12 +28,15 @@ fun OrdersListScreen(
     MainTopBar(
         isRefreshing = uiState.isLoading,
         title = Res.string.app_name,
-        onRefresh = viewModel::refresh,
-        isShowBottomBar = true
+        onRefresh = viewModel::refresh
     ) {
         when {
             uiState.error != null -> {
-                FailureView(onTapToRefresh = viewModel::refresh)
+                FailureView(
+                    tapText = Res.string.tapToLoadContent,
+                    icon = Res.drawable.ic_vector_error,
+                    onTapToRefresh = viewModel::refresh
+                )
             }
 
             uiState.orderUiModel?.isNotEmpty() == true -> {

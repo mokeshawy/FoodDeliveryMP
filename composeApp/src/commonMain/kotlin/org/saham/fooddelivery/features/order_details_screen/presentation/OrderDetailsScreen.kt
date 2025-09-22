@@ -8,14 +8,16 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.saham.fooddelivery.features.common_composaple.OrderItem
+import com.shared.core.ui.failure_view.FailureView
+import com.shared.core.ui.main_top_bar.MainTopBar
 import fooddeliverymp.composeapp.generated.resources.Res
 import fooddeliverymp.composeapp.generated.resources.ic_vector_arrow_back
+import fooddeliverymp.composeapp.generated.resources.ic_vector_error
 import fooddeliverymp.composeapp.generated.resources.orderDetails
+import fooddeliverymp.composeapp.generated.resources.tapToLoadContent
 import org.koin.compose.viewmodel.koinViewModel
+import org.saham.fooddelivery.features.common_composaple.OrderItem
 import org.saham.fooddelivery.features.order_details_screen.presentation.viewmodel.OrderDetailsViewModel
-import org.saham.fooddelivery.ui_component.failure_view.FailureView
-import org.saham.fooddelivery.ui_component.main_top_bar.MainTopBar
 
 @Composable
 fun OrderDetailsScreen(
@@ -29,8 +31,8 @@ fun OrderDetailsScreen(
     MainTopBar(
         isRefreshing = uiState.isLoading,
         onRefresh = viewModel::refresh,
-        leftIcon = Res.drawable.ic_vector_arrow_back,
         title = Res.string.orderDetails,
+        leftIcon = Res.drawable.ic_vector_arrow_back,
         onLeftIconClicked = onBackClicked
     ) {
         Column(
@@ -42,7 +44,11 @@ fun OrderDetailsScreen(
 
             when {
                 uiState.error != null -> {
-                    FailureView(onTapToRefresh = viewModel::refresh)
+                    FailureView(
+                        tapText = Res.string.tapToLoadContent,
+                        icon = Res.drawable.ic_vector_error,
+                        onTapToRefresh = viewModel::refresh
+                    )
                 }
 
                 uiState.orderUiModel != null -> {

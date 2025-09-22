@@ -2,12 +2,12 @@ package org.saham.fooddelivery.features.order_details_screen.presentation.viewmo
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.toRoute
-import org.saham.fooddelivery.core.app_logger.AppLogger
-import org.saham.fooddelivery.core.bases.base_viewmodel.BaseViewModel
-import org.saham.fooddelivery.core.error.ErrorLogPriority
-import org.saham.fooddelivery.core.extensions.collectOnFlowState
-import org.saham.fooddelivery.core.extensions.viewModelScope
-import org.saham.fooddelivery.core.websocket.WebSocketHelper
+import com.shared.core.app_logger.AppLogger
+import com.shared.core.bases.base_viewmodel.BaseViewModel
+import com.shared.core.error.ErrorLogPriority
+import com.shared.core.extensions.collectOnFlowState
+import com.shared.core.extensions.viewModelScope
+import com.shared.core.websocket.WebSocketHelper
 import org.saham.fooddelivery.features.order_details_screen.domain.event.OrderDetailsIntent
 import org.saham.fooddelivery.features.order_details_screen.domain.model.state.OrdersDetailsUiState
 import org.saham.fooddelivery.features.order_details_screen.domain.usecase.OrderDetailsUseCase

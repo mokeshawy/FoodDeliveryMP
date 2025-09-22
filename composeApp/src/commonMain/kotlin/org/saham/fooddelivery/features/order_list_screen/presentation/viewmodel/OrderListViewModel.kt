@@ -1,15 +1,14 @@
 package org.saham.fooddelivery.features.order_list_screen.presentation.viewmodel
 
-import org.saham.fooddelivery.core.extensions.collectOnFlowState
-
-import org.saham.fooddelivery.core.extensions.viewModelScope
-import org.saham.fooddelivery.core.bases.base_viewmodel.BaseViewModel
+import com.shared.core.bases.base_viewmodel.BaseViewModel
+import com.shared.core.extensions.collectOnFlowState
+import com.shared.core.extensions.viewModelScope
 import org.saham.fooddelivery.features.order_list_screen.domain.event.OrderListIntent
 import org.saham.fooddelivery.features.order_list_screen.domain.model.state.OrdersListUiState
 import org.saham.fooddelivery.features.order_list_screen.domain.usecase.OrdersListUseCase
 
 
-class OrderListViewModel (
+class OrderListViewModel(
     private val ordersListUseCase: OrdersListUseCase
 ) : BaseViewModel<OrderListIntent, OrdersListUiState>(OrdersListUiState()) {
 

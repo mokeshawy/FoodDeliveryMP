@@ -29,54 +29,15 @@ kotlin {
     sourceSets {
 
         androidMain.dependencies {
-            implementation(compose.preview)
-            implementation("androidx.activity:activity-compose:1.11.0")
-
-            implementation("io.ktor:ktor-client-android:3.3.0")
-            implementation("io.ktor:ktor-client-okhttp:3.3.0")
+            implementation(project(":core-cmp"))
         }
         commonMain.dependencies {
-
-
-            //Lifecycle
-            implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
-            implementation("org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose:2.9.4")
-
-            //Navigation
-            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.0")
-
-            //Serialization
-            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-
-            //Koin
-            val koinVersion = "4.1.1"
-            implementation("io.insert-koin:koin-compose:$koinVersion")
-            implementation("io.insert-koin:koin-compose-viewmodel:$koinVersion")
-            implementation("io.insert-koin:koin-compose-viewmodel-navigation:$koinVersion")
-
-            //Kotor
-            val ktorVersion = "3.3.0"
-            implementation("io.ktor:ktor-client-core:$ktorVersion")
-            implementation("io.ktor:ktor-client-logging:$ktorVersion")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-            implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-            implementation("io.ktor:ktor-client-websockets:$ktorVersion")
-
-
-            //Coroutines
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
-
-
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.ui)
+            implementation(project(":core-cmp"))
             implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
         }
 
         iosMain.dependencies {
-            implementation("io.ktor:ktor-client-darwin:3.3.0")
+            implementation(project(":core-cmp"))
         }
         commonTest.dependencies {
             implementation("org.jetbrains.kotlin:kotlin-test:2.2.10")

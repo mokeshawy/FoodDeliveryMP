@@ -3,7 +3,7 @@ package org.saham.fooddelivery.features.food_delivery_services
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.url
-import org.saham.fooddelivery.core.network.NetworkModule
+import com.shared.core.network.NetworkModule
 
 class FoodDeliveryServices(private val networkModule: NetworkModule) {
 

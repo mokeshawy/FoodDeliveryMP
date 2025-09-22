@@ -1,0 +1,3 @@
+[submodule "core-cmp"]
+	path = core-cmp
+	url = git@github.com:mokeshawy/core-cmp.git

@@ -8,4 +8,5 @@ plugins {
     id("org.jetbrains.kotlin.multiplatform") version kotlinVersion apply false
     id("org.jetbrains.compose") version "1.9.0" apply false
     id("org.jetbrains.kotlin.plugin.serialization") version kotlinVersion apply false
+    id("com.android.kotlin.multiplatform.library") version "8.10.1" apply false
 }

@@ -26,7 +26,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.saham.fooddelivery.theme.black_normal
 import org.saham.fooddelivery.theme.bold
 import org.saham.fooddelivery.theme.natural_light
-import org.saham.fooddelivery.ui_component.ui_extensions.noRippleClickable
+import com.shared.core.ui.ui_extensions.noRippleClickable
 
 @Composable
 fun OrderItem(
