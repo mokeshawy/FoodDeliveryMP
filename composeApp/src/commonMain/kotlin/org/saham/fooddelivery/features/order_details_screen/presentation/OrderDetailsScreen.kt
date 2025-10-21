@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.shared.core.ui.failure_view.FailureView
@@ -16,6 +17,7 @@ import fooddeliverymp.composeapp.generated.resources.ic_vector_error
 import fooddeliverymp.composeapp.generated.resources.orderDetails
 import fooddeliverymp.composeapp.generated.resources.tapToLoadContent
 import org.koin.compose.viewmodel.koinViewModel
+import org.saham.fooddelivery.core.background_services.provideBackgroundService
 import org.saham.fooddelivery.features.common_composaple.OrderItem
 import org.saham.fooddelivery.features.order_details_screen.presentation.viewmodel.OrderDetailsViewModel
 
@@ -60,6 +62,10 @@ fun OrderDetailsScreen(
 
                     viewModel.sendMessage(message = "id: ${orderUiModel.id} status: ${orderUiModel.status}")
                 }
+            }
+
+            LaunchedEffect(Unit){
+                provideBackgroundService().start()
             }
         }
     }

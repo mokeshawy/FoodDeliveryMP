@@ -2,6 +2,7 @@ package org.saham.fooddelivery.features.order_list_screen.presentation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -16,6 +17,7 @@ import com.shared.core.ui.main_top_bar.MainTopBar
 import com.shared.core.ui.ui_generic.GeneralLazyColumn
 import fooddeliverymp.composeapp.generated.resources.ic_vector_error
 import fooddeliverymp.composeapp.generated.resources.tapToLoadContent
+import org.saham.fooddelivery.core.background_services.provideBackgroundService
 
 
 @Composable
@@ -45,6 +47,10 @@ fun OrdersListScreen(
                     onItemClicked = { id -> id?.let { onNavigateToOrderDetails(it) } }
                 )
             }
+        }
+
+        LaunchedEffect(Unit){
+            provideBackgroundService().stop()
         }
     }
 }

@@ -1,4 +1,4 @@
-package org.saham.fooddelivery
+package org.saham.fooddelivery.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
