@@ -1,27 +1,18 @@
 package org.saham.fooddelivery.features.order_list_screen.domain.usecase
 
-import com.shared.core.state.State
-import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.channelFlow
-
-import org.saham.fooddelivery.features.common.data.response.OrderResponseDto
-import org.saham.fooddelivery.features.common.domain.mapper.toOrderUiModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.stateIn
+import org.saham.fooddelivery.core.local_database.OrderDao
 import org.saham.fooddelivery.features.order_list_screen.domain.repository.OrdersListRepository
 
-class OrdersListUseCase(private val ordersListRepository: OrdersListRepository) {
+class OrdersListUseCase(
+    private val ordersListRepository: OrdersListRepository,
+    private val orderDao: OrderDao
+) {
 
 
-    private var ordersList: List<OrderResponseDto>? = null
+    suspend operator fun invoke() = ordersListRepository.getOrdersList()
 
-    operator fun invoke() = channelFlow {
-        val response = async { ordersListRepository.getOrdersList() }
-        response.await().collect {
-            if (it is State.Success) {
-                ordersList = it.data
-            }
-            send(it)
-        }
-    }
-
-    val ordersListUiModel get() = ordersList?.map { it.toOrderUiModel() } ?: emptyList()
+    suspend fun getAllAsFlow(coroutineScope: CoroutineScope) =
+        orderDao.getAllAsFlow().stateIn(coroutineScope).value
 }

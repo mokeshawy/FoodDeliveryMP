@@ -9,4 +9,5 @@ plugins {
     id("org.jetbrains.compose") version "1.9.0" apply false
     id("org.jetbrains.kotlin.plugin.serialization") version kotlinVersion apply false
     id("com.android.kotlin.multiplatform.library") version "8.10.1" apply false
+    id("com.google.devtools.ksp") version "2.2.0-2.0.2" apply false
 }

@@ -6,6 +6,12 @@ plugins {
     id("org.jetbrains.compose")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("com.google.devtools.ksp")
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+    arg("room.incremental", "true")
 }
 
 kotlin {
@@ -16,6 +22,7 @@ kotlin {
     }
 
     listOf(
+        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
@@ -34,6 +41,10 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":core-cmp"))
             implementation(compose.components.resources)
+
+            //Room
+            implementation("androidx.sqlite:sqlite-bundled:2.6.1")
+            implementation("androidx.room:room-runtime:2.8.2")
         }
 
         iosMain.dependencies {
@@ -74,5 +85,11 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+
+    val kspRoom = "androidx.room:room-compiler:2.8.2"
+    add("kspAndroid", kspRoom)
+    add("kspIosSimulatorArm64", kspRoom)
+    add("kspIosX64", kspRoom)
+    add("kspIosArm64", kspRoom)
 }
 
