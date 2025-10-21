@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import org.saham.fooddelivery.core.paltform_module.initKoin
+import org.saham.fooddelivery.core.platform_koin_config.initKoin
 import org.saham.fooddelivery.koin_app.KoinApp
 
 class MainActivity : ComponentActivity() {
