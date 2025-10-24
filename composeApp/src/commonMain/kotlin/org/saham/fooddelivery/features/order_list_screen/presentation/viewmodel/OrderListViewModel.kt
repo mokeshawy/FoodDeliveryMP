@@ -1,8 +1,9 @@
 package org.saham.fooddelivery.features.order_list_screen.presentation.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import com.shared.core.bases.base_viewmodel.BaseViewModel
-import com.shared.core.extensions.collectOnFlowState
 import com.shared.core.extensions.viewModelScope
+import com.shared.core.state.State
 import org.saham.fooddelivery.features.order_list_screen.domain.event.OrderListIntent
 import org.saham.fooddelivery.features.order_list_screen.domain.model.state.OrdersListUiState
 import org.saham.fooddelivery.features.order_list_screen.domain.usecase.OrdersListUseCase
@@ -35,14 +36,15 @@ class OrderListViewModel(
 
     private fun reduceOrdersListResponseState() = viewModelScope {
         updateStateFlow { copy(isLoading = true) }
-        ordersListUseCase().collectOnFlowState(
-            onError = {
-                handleError(it) { updateStateFlow { copy(isLoading = false, error = it) } }
-            },
-            onSuccess = {
-                val ordersListUiModel = ordersListUseCase.ordersListUiModel
-                updateStateFlow { copy(isLoading = false, orderUiModel = ordersListUiModel) }
-            })
+        ordersListUseCase().collect { result ->
+            val ordersListUiModel = ordersListUseCase.getAllAsFlow(coroutineScope = viewModelScope)
+            when{
+                ordersListUiModel.isEmpty() && result is State.Error -> handleError(result.error) {
+                    updateStateFlow { copy(isLoading = false, error = result.error) }
+                }
+                else -> updateStateFlow { copy(isLoading = false, orderUiModel = ordersListUiModel) }
+            }
+        }
     }
 
 
