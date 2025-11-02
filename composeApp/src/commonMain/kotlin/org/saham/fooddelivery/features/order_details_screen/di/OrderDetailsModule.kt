@@ -14,7 +14,7 @@ val orderDetailsRepositoryModule = module {
 }
 
 val ordersDetailsUseCaseModule = module {
-    single { OrderDetailsUseCase(orderDetailsRepository = get()) }
+    single { OrderDetailsUseCase(orderDetailsRepository = get(), orderDao = get()) }
 }
 
 val orderDetailsViewModelModule = module {

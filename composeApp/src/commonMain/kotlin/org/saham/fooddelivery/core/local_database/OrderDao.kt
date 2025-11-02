@@ -17,6 +17,9 @@ interface OrderDao {
     @Query("SELECT * FROM OrderUiModel")
     fun getAllAsFlow(): Flow<List<OrderUiModel>>
 
+    @Query("SELECT * FROM OrderUiModel WHERE id= :orderId LIMIT 1")
+    fun getOrderByIdAsFlow(orderId: Int): Flow<OrderUiModel>?
+
     @Query("DELETE FROM OrderUiModel")
     suspend fun clearAll()
 }

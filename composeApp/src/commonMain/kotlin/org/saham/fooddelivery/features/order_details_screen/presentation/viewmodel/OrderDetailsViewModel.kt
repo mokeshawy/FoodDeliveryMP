@@ -1,13 +1,15 @@
 package org.saham.fooddelivery.features.order_details_screen.presentation.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.shared.core.app_logger.AppLogger
 import com.shared.core.bases.base_viewmodel.BaseViewModel
 import com.shared.core.error.ErrorLogPriority
-import com.shared.core.extensions.collectOnFlowState
 import com.shared.core.extensions.viewModelScope
+import com.shared.core.state.State
 import com.shared.core.websocket.WebSocketHelper
+import kotlinx.coroutines.flow.stateIn
 import org.saham.fooddelivery.features.order_details_screen.domain.event.OrderDetailsIntent
 import org.saham.fooddelivery.features.order_details_screen.domain.model.state.OrdersDetailsUiState
 import org.saham.fooddelivery.features.order_details_screen.domain.usecase.OrderDetailsUseCase
@@ -45,15 +47,20 @@ class OrderDetailsViewModel(
     }
 
     private fun reduceOrderDetailsResponseState(orderId: Int) = viewModelScope {
+        val orderById =
+            orderDetailsUseCase.getOrderById(orderId = orderId)?.stateIn(viewModelScope)?.value
         updateStateOf { copy(isLoading = true) }
-        orderDetailsUseCase(orderId = orderId).collectOnFlowState(
-            onError = {
-                handleError(it) { updateStateOf { copy(isLoading = false, error = it) } }
-            }, onSuccess = {
-                val orderUiModel = orderDetailsUseCase.orderUiModel
-                updateStateOf { copy(isLoading = false, orderUiModel = orderUiModel) }
+        orderDetailsUseCase(orderId = orderId).collect { result ->
+            when {
+                orderById == null && result is State.Error -> {
+                    handleError(result.error) {
+                        updateStateOf { copy(isLoading = false, error = result.error) }
+                    }
+                }
+
+                else -> updateStateOf { copy(isLoading = false, orderUiModel = orderById) }
             }
-        )
+        }
     }
 
     private fun resetOrderDetailsUiState() =
